@@ -1,0 +1,35 @@
+---
+title: "Plotly Presentation Example"
+author: "Paul Clark"
+date: "May 28, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Plotly 3-D Scatterplot
+### MPG vs. HP and Weight in the `mtcars` dataset
+
+```{r 3dmtcars, message = FALSE, warning=FALSE}
+if (!"plotly" %in% rownames(installed.packages())) {install.packages("plotly")}
+library(plotly)
+data(mtcars)
+mtcars$am[mtcars$am == 0] <- 'Automatic'
+mtcars$am[mtcars$am == 1] <- 'Manual'
+mtcars$am <- as.factor(mtcars$am)
+plot_ly(mtcars, x = ~hp, y = ~wt, z = ~mpg, color = ~am, mode = "markers")
+```
+
+
+## Plotly 2-D Scatterplot
+### MPG vs. Weight in the `mtcars` dataset
+  
+```{r 2dmtcars, message=FALSE, warning=FALSE}
+
+plot_ly(mtcars, x = ~wt, y = ~mpg, color = ~am, mode = "markers")
+
+```
+
+## Thank you
