@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Plotly 3-D Scatterplot
-### MPG vs. HP and Weight in the `mtcars` dataset
+#### MPG vs. HP and Weight in the `mtcars` dataset
 
 ```{r 3dmtcars, message = FALSE, warning=FALSE}
 if (!"plotly" %in% rownames(installed.packages())) {install.packages("plotly")}
@@ -19,17 +19,20 @@ data(mtcars)
 mtcars$am[mtcars$am == 0] <- 'Automatic'
 mtcars$am[mtcars$am == 1] <- 'Manual'
 mtcars$am <- as.factor(mtcars$am)
-plot_ly(mtcars, x = ~hp, y = ~wt, z = ~mpg, color = ~am, mode = "markers")
+plot_ly(mtcars, x = ~hp, y = ~wt, z = ~mpg, color = ~am, type = "scatter3d", mode = "markers")
 ```
 
 
 ## Plotly 2-D Scatterplot
-### MPG vs. Weight in the `mtcars` dataset
+#### MPG vs. Weight in the `mtcars` dataset
   
 ```{r 2dmtcars, message=FALSE, warning=FALSE}
 
-plot_ly(mtcars, x = ~wt, y = ~mpg, color = ~am, mode = "markers")
+plot_ly(mtcars, x = ~hp, y = ~wt, color = ~am, type = "scatter", mode = "markers")
 
 ```
+  
+ 
+
 
 ## Thank you
